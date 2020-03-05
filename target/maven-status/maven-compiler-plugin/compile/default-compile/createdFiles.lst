@@ -1,3 +1,6 @@
+webpages\ClickButtonsPage.class
 webpages\HomePage.class
-webpages\SingletonBrowserClass.class
+webpages\ContactUsPage.class
+webpages\LoginPortalPage.class
 webpages\PageObject.class
+webpages\SingletonBrowserClass.class

@@ -1,4 +1,4 @@
-@test
+@simpletest
 Feature: Test of initialization of browser and webpage
 
 Scenario: Verification of browser initialization
@@ -6,7 +6,3 @@ Scenario: Verification of browser initialization
 	When the browser is initialized
 	Then the browser will be active
 	
-Scenario: Verification of browser initialization
-	Given test
-	When browser
-	Then active

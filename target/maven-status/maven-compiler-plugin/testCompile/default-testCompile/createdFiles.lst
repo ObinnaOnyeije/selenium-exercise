@@ -1,2 +1,4 @@
+stepdefinitions\ContactUsPageStepsDefinitions.class
+stepdefinitions\SimpleStepsDefinitions.class
 cucumber_runner\RunCukesTest.class
-stepdefinitions\CommonStepsDefinitions.class
+stepdefinitions\HomePageStepsDefinitions.class

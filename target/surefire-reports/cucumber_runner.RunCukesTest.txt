@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: cucumber_runner.RunCukesTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 33.833 s <<< FAILURE! - in cucumber_runner.RunCukesTest
+Test of link to ContactUs page  Time elapsed: 33.613 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <http://webdriveruniversity.com/Contact-Us/contactus.html> but was: <http://webdriveruniversity.com/index.html>
+

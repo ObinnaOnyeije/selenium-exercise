@@ -1,6 +1,6 @@
 package stepdefinitions;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webpages.*;
 
-public class CommonStepsDefinitions {
+public class SimpleStepsDefinitions {
 	SingletonBrowserClass instanceOfSingletonBrowserClass;
 
     @Given("^test is ready to begin$")
@@ -28,18 +28,4 @@ public class CommonStepsDefinitions {
     	assertNotNull(instanceOfSingletonBrowserClass.getDriver());
     }
     
-    @Given("^test$")
-    public void test() throws Throwable {
-        throw new PendingException();
-    }
-
-    @When("^browser$")
-    public void browser() throws Throwable {
-        throw new PendingException();
-    }
-
-    @Then("^active$")
-    public void active() throws Throwable {
-        throw new PendingException();
-    }
 }

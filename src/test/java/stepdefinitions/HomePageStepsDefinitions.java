@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Set;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -27,11 +29,22 @@ public class HomePageStepsDefinitions {
     @When("^user clicks ContactUs link$")
     public void user_clicks_contactus_link() throws Throwable {
         HomePage homePage = new HomePage(driver);
-        try {
-        	contactUsPage = homePage.clickContactUsLink();
-        } catch (Exception e) {
-        	e.printStackTrace();
+        contactUsPage = homePage.clickContactUsLink();
+//        try {
+//        	contactUsPage = homePage.clickContactUsLink();
+//        } catch (Exception e) {
+//        	e.printStackTrace();
+//        }
+        String oldWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        assertEquals(2, allWindows.size());
+        for (String window : allWindows) {
+            if (!window.equals(oldWindow)) {
+                driver.switchTo().window(window);
+                break;
+            }
         }
+        assertEquals(ContactUsPage.getURL(), driver.getCurrentUrl());
         
     }
 

@@ -2,6 +2,7 @@ package webpages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class SingletonBrowserClass {
 
@@ -9,7 +10,9 @@ public class SingletonBrowserClass {
 	private WebDriver driver;
 	
 	private SingletonBrowserClass() {
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-maximized");
+		driver = new ChromeDriver(options);
 	}
 	
 	public static SingletonBrowserClass getInstanceOfSingletonBrowserClass() {

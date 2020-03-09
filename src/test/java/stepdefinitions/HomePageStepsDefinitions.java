@@ -20,7 +20,7 @@ public class HomePageStepsDefinitions {
 	@Given("^user is on homepage$")
     public void user_is_on_homepage() throws Throwable {
 		instanceOfSingletonBrowserClass = SingletonBrowserClass.getInstanceOfSingletonBrowserClass();
-		driver = new ChromeDriver();
+		driver = instanceOfSingletonBrowserClass.getDriver();
 		driver.get(HomePage.getURL());
 		assertEquals(HomePage.getURL(), driver.getCurrentUrl());
 		Thread.sleep(6000);
@@ -34,8 +34,12 @@ public class HomePageStepsDefinitions {
 //        	contactUsPage = homePage.clickContactUsLink();
 //        } catch (Exception e) {
 //        	e.printStackTrace();
-//        }
-        String oldWindow = driver.getWindowHandle();
+//        }        
+    }
+
+    @Then("^user is on ContactUs page$")
+    public void user_is_on_contactus_page() throws Throwable {
+    	String oldWindow = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
         assertEquals(2, allWindows.size());
         for (String window : allWindows) {
@@ -44,13 +48,6 @@ public class HomePageStepsDefinitions {
                 break;
             }
         }
-        assertEquals(ContactUsPage.getURL(), driver.getCurrentUrl());
-        
-    }
-
-    @Then("^user is on ContactUs page$")
-    public void user_is_on_contactus_page() throws Throwable {
-    	Thread.sleep(6000);
     	assertEquals(ContactUsPage.getURL(), driver.getCurrentUrl());
     	driver.quit();
     }

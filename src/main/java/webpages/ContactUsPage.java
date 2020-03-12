@@ -8,22 +8,22 @@ public class ContactUsPage extends PageObject {
 
 	private static String url = "http://webdriveruniversity.com/Contact-Us/contactus.html";
 	
-	@FindBy(xpath="//input[@name='first_name']")
+	@FindBy(xpath="//*[@id=\"contact_form\"]/input[1]")
 	private WebElement firstNameField;
 	
-	@FindBy(xpath="//input[@name='last_name']")
+	@FindBy(xpath="//*[@id=\"contact_form\"]/input[2]")
 	private WebElement lastNameField;
 	
-	@FindBy(xpath="//input[@name='email']")
+	@FindBy(xpath="//*[@id=\"contact_form\"]/input[3]")
 	private WebElement emailField;
 	
-	@FindBy(xpath="//input[@name='message']")
+	@FindBy(xpath="//*[@id=\"contact_form\"]/textarea")
 	private WebElement messageField;
 	
-	@FindBy(xpath="/html/body/div[1]/div/div/section/div/div[2]/form/div/input[1]")
+	@FindBy(xpath="//*[@id=\"form_buttons\"]/input[1]")
 	private WebElement resetButton;
 	
-	@FindBy(xpath="/html/body/div[1]/div/div/section/div/div[2]/form/div/input[2]")
+	@FindBy(xpath="//*[@id=\"form_buttons\"]/input[2]")
 	private WebElement submitButton;
 	
 	public ContactUsPage(WebDriver driver) {
@@ -34,6 +34,14 @@ public class ContactUsPage extends PageObject {
 		return url;
 	}
 	
-	
+	public ContactFormThankYouPage fillForm(String first, String last, String email, String message) {
+		firstNameField.sendKeys(first);
+		lastNameField.sendKeys(last);
+		emailField.sendKeys(email);
+		messageField.sendKeys(message);
+		submitButton.click();
+		
+		return new ContactFormThankYouPage(driver);
+	}
 
 }

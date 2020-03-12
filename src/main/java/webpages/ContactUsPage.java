@@ -20,6 +20,12 @@ public class ContactUsPage extends PageObject {
 	@FindBy(xpath="//input[@name='message']")
 	private WebElement messageField;
 	
+	@FindBy(xpath="/html/body/div[1]/div/div/section/div/div[2]/form/div/input[1]")
+	private WebElement resetButton;
+	
+	@FindBy(xpath="/html/body/div[1]/div/div/section/div/div[2]/form/div/input[2]")
+	private WebElement submitButton;
+	
 	public ContactUsPage(WebDriver driver) {
 		super(driver);
 	}

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPortalPage extends PageObject {
+public class LoginPortalFailurePage extends PageObject {
 
 	private static String url = "http://webdriveruniversity.com/Login-Portal/index.html";
 	
@@ -17,7 +17,7 @@ public class LoginPortalPage extends PageObject {
 	@FindBy(id="login-button")
 	private WebElement loginButton;
 	
-	public LoginPortalPage(WebDriver driver) {
+	public LoginPortalFailurePage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

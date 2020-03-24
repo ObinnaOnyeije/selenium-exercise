@@ -8,6 +8,9 @@ public class IFramePage extends PageObject {
 
 	private static String url = "http://webdriveruniversity.com/IFrame/index.html";
 	
+	@FindBy(id="frame")
+	private WebElement frame;
+	
 	public IFramePage(WebDriver driver) {
 		super(driver);
 	}

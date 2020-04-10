@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webpages.*;
 
-public class SimpleStepsDefinitions {
+public class SimpleStepDefinitions {
 	SingletonBrowserClass instanceOfSingletonBrowserClass;
 
     @Given("^test is ready to begin$")

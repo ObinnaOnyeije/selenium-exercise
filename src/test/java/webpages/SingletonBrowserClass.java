@@ -3,14 +3,16 @@ package webpages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class SingletonBrowserClass {
 
 	private static SingletonBrowserClass instanceOfSingletonBrowserClass = null;
 	private WebDriver driver;
+	private ChromeOptions options;
 	
 	private SingletonBrowserClass() {
-		ChromeOptions options = new ChromeOptions();
+		options = new ChromeOptions();
 		options.addArguments("start-maximized");
 		driver = new ChromeDriver(options);
 	}
@@ -23,6 +25,9 @@ public class SingletonBrowserClass {
 	}
 	
 	public WebDriver getDriver() {
+		if(((RemoteWebDriver)driver).getSessionId() == null) {
+			driver = new ChromeDriver(options);
+		}
 		return driver;
 	}
 }

@@ -1,9 +1,9 @@
 @test @contactuspage
-Feature: Testing of WebDriverUniversity home page
+Feature: Testing of WebDriverUniversity Contact Us page
 
-Scenario Outline: Test of link to ContactUs page
+Scenario Outline: Test of Contact Us Form
 	Given user has entered ContactUs page
-	When user enters valid "<first>" "<last>" "<email>" and <"message">
+	When user enters valid "<first>" "<last>" "<email>" and "<message>"
 	Then user receives confirmation
 	
 	Examples:

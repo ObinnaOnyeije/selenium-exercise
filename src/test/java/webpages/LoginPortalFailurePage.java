@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPortalFailurePage extends PageObject {
 
-	private static String url = "http://webdriveruniversity.com/Login-Portal/index.html";
+	private static String url = "http://webdriveruniversity.com/Login-Portal/fail.html";
 	
 	@FindBy(id="text")
 	private WebElement usernameField;
@@ -24,6 +24,10 @@ public class LoginPortalFailurePage extends PageObject {
 	
 	public static String getURL() {
 		return url;
+	}
+	
+	public boolean getDisplayStatus() {
+		return usernameField.isDisplayed();
 	}
 
 }

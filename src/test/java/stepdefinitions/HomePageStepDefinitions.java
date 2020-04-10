@@ -6,19 +6,25 @@ import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webpages.*;
 
-public class HomePageStepsDefinitions {
+public class HomePageStepDefinitions {
 	SingletonBrowserClass instanceOfSingletonBrowserClass;
 	WebDriver driver;
 	
-	@Given("^user begins on homepage$")
-    public void user_begins_on_homepage() throws Throwable {
+	@Before
+	public void setup() {
 		instanceOfSingletonBrowserClass = SingletonBrowserClass.getInstanceOfSingletonBrowserClass();
 		driver = instanceOfSingletonBrowserClass.getDriver();
+	}
+	
+	@Given("^user begins on homepage$")
+    public void user_begins_on_homepage() throws Throwable {
 		driver.get(HomePage.getURL());
 		assertEquals(HomePage.getURL(), driver.getCurrentUrl());
 		Thread.sleep(6000);
@@ -390,5 +396,10 @@ public class HomePageStepsDefinitions {
     	assertEquals(FileUploadPage.getURL(), driver.getCurrentUrl());
     	driver.close();
     	driver.switchTo().window(oldWindow);
+    }
+    
+    @After
+    public void clear() {
+    	driver.manage().deleteAllCookies();
     }
 }

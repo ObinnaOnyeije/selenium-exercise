@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features/", 
     glue = "stepdefinitions",
-    tags = {"@test", "@contactuspage"})
+    tags = {"@test and @loginportalpage"})
 public class RunCukesTest {
-
+	
 }

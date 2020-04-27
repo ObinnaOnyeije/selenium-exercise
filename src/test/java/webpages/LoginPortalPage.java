@@ -1,13 +1,10 @@
 package webpages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPortalPage extends PageObject {
+public class LoginPortalPage extends PageObject implements AlertHandler {
 
 	private static String url = "http://webdriveruniversity.com/Login-Portal/index.html";
 	
@@ -43,10 +40,7 @@ public class LoginPortalPage extends PageObject {
 		usernameField.sendKeys(username);
 		passwordField.sendKeys(password);
 		loginButton.click();
-		WebDriverWait await = new WebDriverWait(driver, 10);
-		await.until(ExpectedConditions.alertIsPresent());
-		Alert alert = driver.switchTo().alert();
-		alert.accept();
+		acceptAlert(driver);
 	}
 	
 	public boolean getDisplayStatus() {
